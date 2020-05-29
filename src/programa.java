@@ -10,9 +10,12 @@ public class programa {
 		
 		String nome;
 		char outroFuncionario;
-		double valorPorHora;
-		int horasTrabalhadas, opcao;
+		double valorPorHora, custoTotal;
+		int horasTrabalhadas, totalHorasTrabalhadas, opcao;
 		boolean novosUsuarios = true;
+		
+		custoTotal = 0;
+		totalHorasTrabalhadas = 0;
 		
 		while (novosUsuarios) {
 			
@@ -34,6 +37,9 @@ public class programa {
 				valorPorHora = input.nextDouble();
 			}
 			
+			totalHorasTrabalhadas += horasTrabalhadas;
+			custoTotal += horasTrabalhadas * valorPorHora;
+			
 			System.out.print("Digitar outro (S/N)? ");
 			outroFuncionario = input.next().charAt(0);
 			
@@ -52,6 +58,12 @@ public class programa {
 			System.out.println("4 - Sair");
 			System.out.print("Digite uma opção: ");
 			opcao = input.nextInt();
+			
+			if (opcao == 1) {
+				System.out.printf("\nTotal de horas = %d%n", totalHorasTrabalhadas);
+			} else if (opcao == 2) {
+				System.out.printf("\nCusto total = R$ %.2f%n", custoTotal);
+			}
 			
 		} while (opcao != 4);
 		

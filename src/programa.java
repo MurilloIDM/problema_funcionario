@@ -11,7 +11,7 @@ public class programa {
 		String nome;
 		char outroFuncionario;
 		double valorPorHora;
-		int horasTrabalhadas;
+		int horasTrabalhadas, opcao;
 		boolean novosUsuarios = true;
 		
 		while (novosUsuarios) {
@@ -43,6 +43,17 @@ public class programa {
 				novosUsuarios = true;
 			}
 		}
+		
+		do {
+			System.out.println("\nMENU");
+			System.out.println("1 - Total de horas trabalhadas");
+			System.out.println("2 - Custo total");
+			System.out.println("3 - Nome da pessoa que ganhou mais");
+			System.out.println("4 - Sair");
+			System.out.print("Digite uma opção: ");
+			opcao = input.nextInt();
+			
+		} while (opcao != 4);
 		
 		input.close();
 

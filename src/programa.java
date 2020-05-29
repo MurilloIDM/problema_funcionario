@@ -8,14 +8,16 @@ public class programa {
 		Locale.setDefault(Locale.US);
 		Scanner input = new Scanner(System.in);
 		
-		String nome;
+		String nome, ganhouMais;
 		char outroFuncionario;
-		double valorPorHora, custoTotal;
+		double valorPorHora, custoTotal, maior;
 		int horasTrabalhadas, totalHorasTrabalhadas, opcao;
 		boolean novosUsuarios = true;
 		
+		ganhouMais = "";
 		custoTotal = 0;
 		totalHorasTrabalhadas = 0;
+		maior = 0;
 		
 		while (novosUsuarios) {
 			
@@ -40,6 +42,11 @@ public class programa {
 			totalHorasTrabalhadas += horasTrabalhadas;
 			custoTotal += horasTrabalhadas * valorPorHora;
 			
+			if ((horasTrabalhadas * valorPorHora) > maior) {
+				ganhouMais = nome;
+				maior = horasTrabalhadas * valorPorHora;
+			}
+			
 			System.out.print("Digitar outro (S/N)? ");
 			outroFuncionario = input.next().charAt(0);
 			
@@ -63,9 +70,13 @@ public class programa {
 				System.out.printf("\nTotal de horas = %d%n", totalHorasTrabalhadas);
 			} else if (opcao == 2) {
 				System.out.printf("\nCusto total = R$ %.2f%n", custoTotal);
+			} else if (opcao == 3) {
+				System.out.printf("\nPessoa que ganhou mais: %s%n", ganhouMais);
 			}
 			
 		} while (opcao != 4);
+		
+		System.out.println("\nFIM DO PROGRAMA");
 		
 		input.close();
 
